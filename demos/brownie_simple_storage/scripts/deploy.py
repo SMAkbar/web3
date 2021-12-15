@@ -1,8 +1,9 @@
-from brownie import accounts
+from brownie import accounts, config
+import os
 
 
 def deploy_simple_storage():
-    account = accounts.load("first_account")
+    account = accounts.add(config["wallets"]["from_key"])
     print(account)
 
 
