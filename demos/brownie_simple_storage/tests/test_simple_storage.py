@@ -12,7 +12,7 @@ def test_deploy():
     assert starting_value == expected
 
 
-def test_update_storage():
+def test_updating_storage():
     # Arrange
     account = accounts[0]
     simple_storage = SimpleStorage.deploy({"from": account})
