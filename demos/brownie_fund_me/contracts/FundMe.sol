@@ -13,6 +13,14 @@ contract FundMe {
     address public owner;
     AggregatorV3Interface public priceFeed;
 
+    function getEntranceFee() public view returns (uint256) {
+        // minimumUSD
+        uint256 minimumUSD = 50 * 10**18;
+        uint256 price = getPrice();
+        uint256 precision = 1**10**18;
+        return (minimumUSD * precision) / price;
+    }
+
     constructor(address _princeFeed) public {
         priceFeed = AggregatorV3Interface(_princeFeed);
         owner = msg.sender;
